@@ -1,7 +1,6 @@
-<div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
+<div class=" header">
+    <nav class="navbar navbar-expand-lg bg-light ">
+        <div class="container">
             <a class="navbar-brand" href="/">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -14,8 +13,8 @@
                     <li class="nav-item">
                         <a class="nav-link main-nav @if (Request::is('about')) active @endif" href="{{ url('about') }} ">About</a>
                     </li>
-                    <li class="nav-item dropdown navDropdown">
-                        <a  class="nav-link dropdown-toggle "  role="button" data-hover="dropdown" @if (Request::is('products')) active @endif  aria-expanded="false" href="{{ url('products') }}">
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle " data-hover="dropdown" role="button" aria-expanded="true" @if (Request::is('products')) active @endif  aria-expanded="false" href="{{ url('products') }}">
                             Products
                         </a>
                         <ul class="dropdown-menu">

@@ -13,7 +13,7 @@ class PagesController extends Controller
     {
         $about = "About";
        //$page = Page::where('title','About')->first();
-      return view('pages/about', [])->with('about', $about); 
+      return view('pages/about', ['about' => $about]); 
     }
 
     public function products()
@@ -22,13 +22,13 @@ class PagesController extends Controller
         $products = "Products";
         // $page = Page::where('title', 'Product')->first();
         // $products = Products::all();
-        return view('pages/products', [ ])->with('products', $products);
+        return view('pages/products', ['products'=> $products ]);
     }
 
     public function Contact()
     {
         $contact = "Contact";
        //$page = Page::where('title','Contact')->first();
-      return view('pages/contact', [])->with('contact', $contact); 
+      return view('pages/contact', ['contact' => $contact]); 
     }
 }
