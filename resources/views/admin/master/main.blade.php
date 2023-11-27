@@ -31,16 +31,17 @@
 </head>
 
 <body class="">
-    @component('master.header')
-    @endcomponent
-
     <main>
-        @yield('content')
-    </main>
+        @component('admin.master.sidebar')
+        @endcomponent
 
-    @component('master.footer')
-    @endcomponent
-
+            @yield('content')
+        </div>
+    </div>
+</div>
+</main>
+        @component('admin.master.footer')
+        @endcomponent
 
     <!-- Scripts ( defer execute at the end.)-->
    <script  type="module"  src="{{ asset('js/app.js') }}" defer></script>
