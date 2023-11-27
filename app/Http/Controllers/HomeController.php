@@ -25,19 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        //admin dashboard
+         return view('admin.admin');
     }
-
-    
-
-    // public function slider(){
-
-    //   $sliders = Slider::where('is_active','1')->get();
-    //   $testimonials =Testimonial::where('is_active','1')->orderBy('id', 'desc')->paginate(10);
-    //   $fotografias = Fotografia::where('is_active','1')->orderBy('order', 'desc')->paginate(6);
-    //   return view('index', ['sliders' => $sliders, 'fotografias' => $fotografias, 'testimonials' => $testimonials, 'shareComponent' => $shareComponent]); // Homepage with Carousel
-    // }
-
 
 }
  

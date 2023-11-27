@@ -1,4 +1,5 @@
-<div id="media" class="container media-content-true">
+{{$sliders }} 
+{{-- <div id="media" class="container media-content-true">
         @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('status') }}
@@ -84,4 +85,4 @@
         </div>
 </div>
 
-
+ --}}
