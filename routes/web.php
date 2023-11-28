@@ -3,6 +3,7 @@
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Auth\Events\Verified;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -34,22 +35,23 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/admin', 'HomeController@index')->name('admin');
 
 //**  BACKEND ROUTES  */ 
-Route::get('/admin/dashboard', 'SliderController@index')->name('admin.index');
-Route::resource('admin/sliders', 'SliderController')->names('admin.sliders');
-Route::put('admin/sliders/update/{slider}', 'SliderController@updateState')->name('slider.update-state');
+Route::group(['middleware' => 'auth'], function () {
+    // Your routes here
+});
 
-// Page
-Route::get('/admin/page','PageController@index')->name('page.index');
-Route::post('admin/page/store','PageController@store')->name('page.store');
-Route::get('admin/page/create', 'PageController@create')->name('page.create');
-Route::get('admin/page/{id}', 'PageController@show')->name('page.show');
-Route::get('admin/page/{id}/edit', 'PageController@edit')->name('page.edit');
-Route::put('admin/page/{id}', 'PageController@update')->name('page.update');
-Route::delete('admin/page/{id}', 'PageController@destroy')->name('page.destroy');
+Route::group([ 'middleware' => 'auth'], function () {
+   
+    Route::get('/admin/dashboard', 'SliderController@index')->name('admin.index');
+    Route::resource('admin/sliders', 'SliderController')->names('admin.sliders');
+    Route::put('admin/sliders/update/{slider}', 'SliderController@updateState')->name('slider.update-state');
 
-// Route::post('product/store','ExtraController@store')->name('extra.store');
-// Route::get('product/create', 'ExtraController@create')->name('extras.create');
-// Route::get('product/{id}', 'ExtraController@show')->name('extra.show');
-// Route::get('product/{id}/edit', 'ExtraController@edit')->name('extra.edit');
-// Route::put('product/{id}', 'ExtraController@update')->name('extra.update');
-// Route::delete('product/{id}', 'ExtraController@destroy')->name('extra.destroy');
+    // Page
+    Route::get('/admin/page','PageController@index')->name('page.index');
+    Route::post('admin/page/store','PageController@store')->name('page.store');
+    Route::get('admin/page/create', 'PageController@create')->name('page.create');
+    Route::get('admin/page/{id}', 'PageController@show')->name('page.show');
+    Route::get('admin/page/{id}/edit', 'PageController@edit')->name('page.edit');
+    Route::put('admin/page/{id}', 'PageController@update')->name('page.update');
+    Route::delete('admin/page/{id}', 'PageController@destroy')->name('page.destroy');
+
+});

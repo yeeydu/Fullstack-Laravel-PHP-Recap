@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         //admin dashboard
-         return view('admin.admin')->name('dashboard');
+         return view('admin.dashboard')->name('dashboard');
     }
 
 }
