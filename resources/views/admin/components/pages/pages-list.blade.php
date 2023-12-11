@@ -16,35 +16,38 @@
         </div>
     @endif --}}
 
-<h1>Pages</h1>
- 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Page Name</th>
-        <th scope="col">Title</th>
-        <th scope="col">Description</th>
-        <th scope="col">Image</th>
-        <th scope="col">Is Active</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td scope="row">Name</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>@Image</td>
-        <td>@IsActive</td>
-      </tr>
-      <tr>
-        <td scope="row">Name</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>@Image</td>
-        <td>@IsActive</td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="row m-2">
+        <a href="{{ url('admin/page/create') }}" class="btn btn-primary mr-4">Add Page</a> 
+    </div>
+
+    <h1>Pages</h1>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Is Active</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach($pages as $page)
+        <tr>
+            <td scope="row">{{$page->title}}</td>
+            <td>{{$page->description}}</td>
+            <td >
+                @if ($page->image)
+                    <img class="img-fluid" src="{{ asset('storage/' . $page->image) }}" alt="image" style="max-height: 80px">
+                @else
+                    <p>No Image</p>  
+                @endif
+            </td>
+            <td>{{$page->is_active ? 'true' : 'false'}}</td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
 
 
 </div>
