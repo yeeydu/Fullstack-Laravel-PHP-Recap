@@ -47,8 +47,8 @@ Route::group([ 'middleware' => 'auth'], function () {
 
     // Page
     Route::get('/admin/page','PageController@index')->name('page.index');
-    Route::post('admin/page/store','PageController@store')->name('page.store');
     Route::get('admin/page/create', 'PageController@create')->name('page.create');
+    Route::post('admin/page/store','PageController@store')->name('page.store');
     Route::get('admin/page/{id}', 'PageController@show')->name('page.show');
     Route::get('admin/page/{id}/edit', 'PageController@edit')->name('page.edit');
     Route::put('admin/page/{id}', 'PageController@update')->name('page.update');
