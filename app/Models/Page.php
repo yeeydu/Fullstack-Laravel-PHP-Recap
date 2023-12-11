@@ -11,5 +11,6 @@ class Page extends Model
     'title',
     'description',
     'image',
+    'is_active',
   ];
 }
