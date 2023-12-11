@@ -8,7 +8,7 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item" >
                         <a href="{{url('/')}}" class="nav-link align-middle px-0" target="_blank">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Site Home</span>
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline small">Site Home</span>
                         </a>
                     </li>
                     <li class="@if(Request::path()== 'admin/dashboard') active @endif">
