@@ -15,7 +15,7 @@
     </div>
     @endif --}}
 
-    <div class="row m-2">
+    <div class="m-2">
         <a href="{{ url('admin/page/create') }}" class="btn btn-primary mr-4">Add Page</a>
     </div>
 
