@@ -6,6 +6,7 @@ use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
@@ -21,9 +22,10 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::all();
-        //var_dump($pages);
-        //dd($pages);
-        dump($pages); // love dump
+        $pages = $pages->reverse();
+        //var_dump($pages); // shows raw info and view content
+        //dd($pages); // only shows info
+        //dump($pages); // love dump shows info and view content
         return view('admin.pages.pages.index', ['pages' => $pages]);
     }
 
@@ -45,7 +47,7 @@ class PageController extends Controller
         $this->validate($request, [
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-           // 'is_active' => 'boolean',
+            // 'is_active' => 'boolean',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
         ]);
 
@@ -70,17 +72,28 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Page $page)
+    public function show($id)
     {
-        //
+        $page = Page::find($id);
+        if (!$page) {
+            return abort(404);
+        }
+
+        return view('admin.pages.pages.show', ['page' => $page]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
-        //
+
+        $page = Page::find($id);
+        if (!$page) {
+            return abort(404);
+        }
+
+        return view('admin.pages.pages.edit', ['page' => $page]);
     }
 
     /**
@@ -88,7 +101,8 @@ class PageController extends Controller
      */
     public function update(UpdatePageRequest $request, Page $page)
     {
-        //
+
+       //
     }
 
     /**

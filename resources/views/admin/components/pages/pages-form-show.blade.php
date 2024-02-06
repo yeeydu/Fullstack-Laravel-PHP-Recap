@@ -1,21 +1,19 @@
 <div class="container">
-    <h2>Show - {{$pages->title}}</h2>
+    <h2>Show - {{$page->title}}</h2>
     <a href="{{ url('admin/page') }}" class="btn btn-primary">Back</a>
 
-    <h3>Title</h3>
-    <div>
-        {{$pages->title}}
-    </div>
-    <span>Description</span>
+    <h3> {{$page->title}}</h3>
+
+    <strong>Description</strong>
     <div class="show-style">
-        {!!$pages->description!!}
+        {!!$page->description!!}
     </div>
 
-    <label for="exampleInputPassword1">Image</label>
-    <div class="w-50 ">
+    <strong>Image</strong>
+    <div class="w-25 ">
         <!----->
-        @if ($pages->image)
-        <img class="w-50 img-thumbnail" src="{{ asset('storage/' . $pages->image) }}" alt="image"></td>
+        @if ($page->image)
+        <img class="w-50 img-thumbnail" src="{{ asset('storage/' . $page->image) }}" alt="image"></td>
         @else
         <p>No Image</p>
         @endif
@@ -25,7 +23,12 @@
         <span class="invalid-feedback" role="alert"></span>
     </div>
     <div>
-        {{$pages->is_active}}
+        @if($page->is_active === 1)
+        <p>Active</p>
+        @else
+        <p>Inactive</p>
+        @endif
+
     </div>
     </form>
 </div>
