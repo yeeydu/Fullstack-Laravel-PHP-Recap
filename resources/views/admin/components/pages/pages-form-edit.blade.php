@@ -1,8 +1,9 @@
 <div class="container">
     <h2>Edit Page</h2>
     <a href="{{ url('admin/page') }}" class="btn btn-primary">Back</a>
-    <form method="POST" action="{{route('page.store')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('page.update', ['id' => $page->id])}}" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="form-group mt-2">
             <label for="exampleInputPassword1">Title</label>
             <input type="text" name="title" id="title" autocomplete="title" placeholder="Type title" class="form-control @error('title')
@@ -29,11 +30,11 @@
         </div>
         <div class="row align-items-start">
             <div class="">
-                <label class="form-check-label mt-2" for="is_active">Is Active: {{ $page->is_active ? 'yes' : 'no'
+                <label class="form-check-label mt-2" for="is_active">Is Active: {{ $page->is_active === 1 ? 'yes' : 'no'
                     }}</label>
                 <div class="form-check form-switch">
                     <input class="form-check-input " type="checkbox" role="switch" name="is_active" id="is_active"
-                        value="{{ $page->is_active ? 'checked' : 'unchecked' }}">
+                        {{ $page->is_active === 1 ? 'checked' : '' }}>
                 </div>
             </div>
 

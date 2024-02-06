@@ -99,10 +99,36 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePageRequest $request, Page $page)
+    public function update(Request $request, Page $page)
     {
+        // $page = Page::find($page->id);
 
-       //
+        $this->validate($request, [
+            'title'        => 'required',
+            'description'  => 'required',
+            'image'        => 'image|mimes:png,jpg,jpeg,svg,gif|max:3000'
+        ]);
+
+        $page->title = $request->title;
+        $page->description = $request->description;
+        $page->is_active = $request->has('is_active');
+
+
+        if ($request->hasFile('image')) {
+            // Delete previous image if it exists
+            Storage::delete($page->image);
+
+            // Store new image
+            $imagePath = $request->file('image');
+            $imageName = $page->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images/pages/' . $page->id, $imageName, 'public');
+            // Update image path in the database
+            $page->image = $path;
+        }
+
+        $page->save();
+
+        return redirect('admin/page')->with('status', 'Item edited succesfully!');
     }
 
     /**
