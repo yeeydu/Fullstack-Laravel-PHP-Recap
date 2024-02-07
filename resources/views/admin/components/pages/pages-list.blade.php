@@ -52,13 +52,14 @@
                         @auth
                         <a href="{{url('admin/page/' . $page->id . '/edit')}}" type="button"
                             class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <!-----  Desativar Eliminar pagina  ----
-                   <form action="{{url('admin/page/' . $page->id)}}" method="POST">
-                       @csrf
-                       @method('DELETE')
-                       <button type="submit" class="btn btn-outline-danger show_confirm"><i class="fa-solid fa-trash-can"></i></button>
-                   </form>
-                   ----   ---->
+                        <!-----  Desativar Eliminar pagina   ---->
+                        <form action="{{ url('admin/page/' . $page->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger show_confirm">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </form>
                         @endauth
                     </div>
                 </td>
