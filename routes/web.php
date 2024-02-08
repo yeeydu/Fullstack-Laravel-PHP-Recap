@@ -51,7 +51,7 @@ Route::group([ 'middleware' => 'auth'], function () {
     Route::post('admin/page/store','PageController@store')->name('page.store');
     Route::get('admin/page/{id}', 'PageController@show')->name('page.show');
     Route::get('admin/page/{id}/edit', 'PageController@edit')->name('page.edit');
-    Route::put('admin/page/{update}', 'PageController@update')->name('page.update');
-    Route::delete('admin/page/{id}', 'PageController@destroy')->name('page.destroy');
+    Route::put('admin/page/{page}/{id}', 'PageController@update')->name('page.update');
+    Route::delete('admin/page/{page}', 'PageController@destroy')->name('page.destroy');
 
 });

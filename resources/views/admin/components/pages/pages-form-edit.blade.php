@@ -1,9 +1,9 @@
 <div class="container">
     <h2>Edit Page</h2>
     <a href="{{ url('admin/page') }}" class="btn btn-primary">Back</a>
-    <form method="POST" action="{{route('page.update', ['id' => $page->id])}}" enctype="multipart/form-data">
-        @csrf
+    <form method="POST" action="{{route('page.update', ['id' => $page])}}" enctype="multipart/form-data">
         @method('PUT')
+        @csrf
         <div class="form-group mt-2">
             <label for="exampleInputPassword1">Title</label>
             <input type="text" name="title" id="title" autocomplete="title" placeholder="Type title" class="form-control @error('title')

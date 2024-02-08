@@ -7,6 +7,9 @@ use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Stmt\TryCatch;
+
+use function Laravel\Prompts\error;
 
 class PageController extends Controller
 {
@@ -66,7 +69,7 @@ class PageController extends Controller
         }
         $page->save();
 
-        return redirect('admin/page')->with('success', 'Page created successfully.');
+        return redirect('admin/page')->with('msg', 'Page created successfully.');
     }
 
     /**
@@ -99,9 +102,9 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
-        // $page = Page::find($page->id);
+        $page = Page::find($id);
 
         $this->validate($request, [
             'title'        => 'required',
@@ -116,7 +119,7 @@ class PageController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete previous image if it exists
-            Storage::delete($page->image);
+            Storage::deleteDirectory('public/images/pages/' . $page->id);
 
             // Store new image
             $imagePath = $request->file('image');
@@ -128,14 +131,18 @@ class PageController extends Controller
 
         $page->save();
 
-        return redirect('admin/page')->with('status', 'Item edited succesfully!');
+        return redirect('admin/page')->with('msg', 'Item edited succesfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Page $page)
+    public function destroy($id)
     {
-        //
+        $page = Page::find($id);
+        Storage::deleteDirectory('public/images/pages/' . $page->id);
+        $page->delete();
+
+        return redirect('admin/page')->with('msg', 'Item deleted succesfully!');
     }
 }
