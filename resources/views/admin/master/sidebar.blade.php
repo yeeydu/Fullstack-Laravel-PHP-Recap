@@ -6,14 +6,16 @@
                     <span class="fs-5 d-none d-sm-inline">Menu</span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item" >
+                    <li class="nav-item">
                         <a href="{{url('/')}}" class="nav-link align-middle px-0" target="_blank">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline small">Site Home</span>
                         </a>
                     </li>
                     <li class="@if(Request::path()== 'admin/dashboard') active @endif">
-                        <a href="{{url('admin/dashboard')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                        <a href="{{url('admin/dashboard')}}" data-bs-toggle="collapse"
+                            class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                        </a>
                         {{-- <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
@@ -28,9 +30,10 @@
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Pages</span></a>
                     </li>
                     <li class="@if(Request::path()== 'admin/products') active @endif">
-                        <a href="{{url('admin/products')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a href="{{url('admin/products')}}" data-bs-toggle="collapse"
+                            class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                             <li class="w-100">
                                 <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
                             </li>
@@ -46,14 +49,17 @@
                         </ul>
                     </li>
                     <li class="@if(Request::path()== 'admin/customers') active @endif">
-                        <a href="{{url('admin/customers')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <a href="{{url('admin/customers')}}" data-bs-toggle="collapse"
+                            class="nav-link px-0 align-middle ">
                             <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Customers</span></a>
                         <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Customers</span> List</a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Customers</span>
+                                    List</a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Customers</span> 2</a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Customers</span>
+                                    2</a>
                             </li>
                         </ul>
                     </li>
@@ -64,7 +70,8 @@
                 </ul>
                 <hr>
                 <div class="dropdown pb-4">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <i class="bi bi-person-circle"></i>
                         {{ Auth::user()->name }}
                     </a>
@@ -75,10 +82,9 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li>                     
+                        <li>
                             <div class="d-flex">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -92,4 +98,3 @@
             </div>
         </div>
         <div class="col py-3">
-             

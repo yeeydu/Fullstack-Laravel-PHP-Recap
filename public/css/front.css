@@ -1,0 +1,20 @@
+* {
+    font-family:  Roboto;
+}
+.container{
+    margin-top: 10px;
+}
+
+.carousel-inner{
+    height: 600px;
+}
+
+.page_img
+{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    padding: 20px;
+}
