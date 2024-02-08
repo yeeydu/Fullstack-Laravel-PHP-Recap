@@ -27,7 +27,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
                 <th scope="col">Image</th>
-                <th scope="col">Is Active</th>
+                <th scope="col">Status</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -44,7 +44,7 @@
                     <p>No Image</p>
                     @endif
                 </td>
-                <td>{{$page->is_active ? 'true' : 'false'}}</td>
+                <td>{{$page->is_active ? 'Active' : 'Inactive'}}</td>
                 <td class="">
                     <div class="pr-1 d-inline-flex">
                         <a href="{{url('admin/page/' . $page->id)}}" type="button" class="btn btn-outline-success"><i
