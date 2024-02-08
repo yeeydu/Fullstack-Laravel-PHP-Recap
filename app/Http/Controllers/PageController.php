@@ -57,12 +57,12 @@ class PageController extends Controller
         $page = new Page();
         $page->title = $request->title;
         $page->description = $request->description;
-        $page->image = $request->image;
         $page->is_active = $request->has('is_active') ? true : false;
+        $page->save(); // save it first to get the id and then pass it to the image
 
-        if ($request->file('image')) {
-            $image = $request->file('image');
-            $imageName = $page->title . '_' . date('Y-m-d') . '_' . $image->getClientOriginalName();
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image');
+            $imageName = $page->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
             $path = $request->file('image')->storeAs('images/pages/' . $page->id, $imageName, 'public');
             //$image->move(storage_path('app/public'), $imageName);
             $page->image = $path;

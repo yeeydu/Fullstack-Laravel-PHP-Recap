@@ -35,7 +35,7 @@
             @foreach($pages as $page)
             <tr>
                 <td scope="row">{{$page->title}}</td>
-                <td>{{$page->description}}</td>
+                <td>{{ substr($page->description ,0, 80) }}</td>
                 <td>
                     @if ($page->image)
                     <img class="img-fluid" src="{{ asset('storage/' . $page->image) }}" alt="image"
