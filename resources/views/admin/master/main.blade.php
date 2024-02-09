@@ -16,7 +16,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'CRUD-RECAP') }}</title>
+    <title>{{ config('app.name', 'Fullstack-Laravel-PHP-Recap') }}</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
