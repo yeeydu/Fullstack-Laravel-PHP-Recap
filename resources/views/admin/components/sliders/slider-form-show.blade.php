@@ -31,7 +31,11 @@
     </div>
 
     <strong>Description</strong>
-    <div class="show-style">
+    <div class="show-style mb-2">
         {!!$slider->description!!}
+    </div>
+    <strong>Link</strong>
+    <div class="show-style  mb-2">
+        {!!$slider->link!!}
     </div>
 </div>
