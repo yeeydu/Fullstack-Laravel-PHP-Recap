@@ -18,6 +18,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="carousel-h1">{{ $slide->title }}</h1>
                 <h4 class="carousel-h4">{!! $slide->description !!}</h4>
+                <a class="btn btn-outline-secondary btn-sm" href="{{$slide->link}}" role="button">More</a>
             </div>
         </div>
         @endforeach
