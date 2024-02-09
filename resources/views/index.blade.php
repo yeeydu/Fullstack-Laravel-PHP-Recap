@@ -12,7 +12,9 @@
     <div class="carousel-inner">
         @foreach($sliders as $slide)
         <div class="carousel-item active">
+            <a href="{{$slide->link}}" >
             <img src="{{asset('storage/'. $slide->image)}}" class="d-block w-100" alt="Products slides" >
+            </a>
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="carousel-h1">{{ $slide->title }}</h1>
                 <h4 class="carousel-h4">{!! $slide->description !!}</h4>
