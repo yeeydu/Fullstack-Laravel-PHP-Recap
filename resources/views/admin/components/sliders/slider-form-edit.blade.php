@@ -26,7 +26,7 @@
         </div>
         <div class="form-group mt-4">
             <label for="exampleInputPassword1">Link</label>
-            <input type="text" name="link" id="link" autocomplete="link" placeholder="http://www." class="form-control @error('link')
+            <input type="text" name="link" id="link" autocomplete="link" placeholder="https://www.site.com" class="form-control @error('link')
                     is-invalid
                 @enderror" value="{{$slider->link }}" required aria-describedby="nameHelp">
             @error('link') <span class="invalid-feedback" role="alert">
