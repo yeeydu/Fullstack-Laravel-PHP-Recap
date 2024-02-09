@@ -99,19 +99,18 @@ class SliderController extends Controller
         $slider->link = $request->link;
         $slider->is_active = $request->has('is_active') ? 1 : 0;
         $slider->order = $request->order;
-        $slider->save();
 
         if($request->hasFile('image')){
             Storage::deleteDirectory('public/images/slider/' . $slider->id);
 
             $imagePath = $request->file('image');
-            $imageName = $slider->id . '_' . $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+            $imageName = $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
             $path = $request->file('image')->storeAs('images/sliders/'. $slider->id, $imageName, 'public');
             $slider->image = $path;
-            $slider->save();
         }
 
-        $slider->image = $request->image;
+        $slider->save();
+
         return redirect('admin/dashboard')->with('msg', 'Item updated successfully');
     }
 
@@ -121,6 +120,7 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         $slider = Slider::find($slider->id);
+        Storage::deleteDirectory('public/images/slider/' . $slider->id);
         $slider->delete();
 
             return redirect('admin/dashboard')->with('msg', 'Item deleted successfully');
