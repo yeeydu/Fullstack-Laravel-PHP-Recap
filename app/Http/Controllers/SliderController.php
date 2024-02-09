@@ -112,7 +112,7 @@ class SliderController extends Controller
         }
 
         $slider->image = $request->image;
-        return redirect('admin/dashboard')->with('msg', 'Item created successfully');
+        return redirect('admin/dashboard')->with('msg', 'Item updated successfully');
     }
 
     /**
@@ -120,6 +120,9 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider = Slider::find($slider->id);
+        $slider->delete();
+
+            return redirect('admin/dashboard')->with('msg', 'Item deleted successfully');
     }
 }
