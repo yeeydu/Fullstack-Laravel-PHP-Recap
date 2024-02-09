@@ -1,5 +1,5 @@
 <div id="" class="container media-content-true">
-    {{-- @if (session('status'))
+    @if (session('status'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session("status") }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -13,7 +13,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    @endif --}}
+    @endif
 
     <div class="m-2">
         <a href="{{ url('admin/page/create') }}" class="btn btn-primary mr-4">Add Page</a>
@@ -67,4 +67,5 @@
             @endforeach
         </tbody>
     </table>
+    {{ $pages->links('pagination::bootstrap-4') }}
 </div>
