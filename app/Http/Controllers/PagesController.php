@@ -13,7 +13,8 @@ class PagesController extends Controller
     public function index() // Home
     {
         $home = Page::where('title','Home')->where('is_active','1')->first();
-      return view('index', ['home' => $home]);
+        $sliders = Slider::where('is_active','1')->get();
+      return view('index', ['home' => $home, 'sliders' => $sliders]);
     }
 
     public function slider(){
