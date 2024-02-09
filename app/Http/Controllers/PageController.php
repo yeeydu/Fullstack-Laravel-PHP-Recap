@@ -24,8 +24,7 @@ class PageController extends Controller
 
     public function index()
     {
-        $pages = Page::all();
-        $pages = $pages->reverse();
+        $pages = Page::orderBy('id', 'desc')->paginate(4);
         //var_dump($pages); // shows raw info and view content
         //dd($pages); // only shows info
         //dump($pages); // love dump shows info and view content
