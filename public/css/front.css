@@ -27,3 +27,9 @@
     border-radius: 30px;
     padding: 20px;
 }
+
+.carousel-caption
+{
+    top: 50%;
+    transform: translateY(-30%);
+}

@@ -1,29 +1,24 @@
 @extends('master.main')
 @section('content')
 
-
+@if ($sliders->isNotEmpty())
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+        @foreach($sliders as $slide)
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $loop->index }}"
+            class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide 1"></button>
+        @endforeach
     </div>
     <div class="carousel-inner">
+        @foreach($sliders as $slide)
         <div class="carousel-item active">
-            <img src="https://images.pexels.com/photos/18925469/pexels-photo-18925469/free-photo-of-praia-litoral-frio-com-frio.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                class="d-block w-100" alt="...">
+            <img src="{{asset('storage/'. $slide->image)}}" class="d-block w-100" alt="Products slides" >
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="text-info">{{ $slide->title }}</h1>
+                <h4 class="text-secondary">{!! $slide->description !!}</h4>
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="https://images.pexels.com/photos/19035601/pexels-photo-19035601/free-photo-of-pano-de-fundo-contexto-praia-litoral.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://images.pexels.com/photos/18714268/pexels-photo-18714268/free-photo-of-frio-com-frio-gelado-congelado.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                class="d-block w-100" alt="...">
-        </div>
+        @endforeach
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
         data-bs-slide="prev">
@@ -36,6 +31,7 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+@endif
 <div class="container">
 
     @if($home)
