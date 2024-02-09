@@ -41,9 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group([ 'middleware' => 'auth'], function () {
 
-    Route::get('/admin/dashboard', 'SliderController@index')->name('admin.index');
-    Route::resource('admin/sliders', 'SliderController')->names('admin.sliders');
-    Route::put('admin/sliders/update/{slider}', 'SliderController@updateState')->name('slider.update-state');
+    Route::get('/admin/dashboard', 'SliderController@index')->name('slider.index');
+    Route::resource('admin/sliders', 'SliderController')->names('admin.sliders'); //resource controller
+
 
     // Page
     Route::get('/admin/page','PageController@index')->name('page.index');

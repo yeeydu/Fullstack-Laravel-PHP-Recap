@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
 use App\Models\Slider;
+use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
@@ -13,8 +14,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
-        return view('admin.admin', ['sliders' => $sliders]);
+        $sliders = Slider::orderBy('id', 'desc')->paginate(4);
+        return view('admin.dashboard', ['sliders' => $sliders]);
     }
 
     /**
@@ -28,9 +29,37 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSliderRequest $request)
+    public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'link' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+           // 'is_active' => 'boolean',
+            'order' => 'required',
+        ]);
+
+        $slider = new Slider();
+        $slider->title = $request->title;
+        $slider->description = $request->description;
+        $slider->link = $request->link;
+        $slider->is_active = $request->has('is_active') ? 1 : 0;
+        $slider->order = $request->order;
+        $slider->save();
+
+            dump($request->image);
+        if($request->hasFile('image')){
+            $imagePath = $request->file('image');
+            $imageName = $slider->id . '_' . $slider->title . '_' . date('Y-m-d') . '_' . $imagePath->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images/sliders/'. $slider->id, $imageName, 'public');
+            $slider->image = $path;
+            $slider->save();
+        }
+
+        $slider->image = $request->image;
+        return redirect('admin/dashboard')->with('msg', 'Item created successfully');
+
     }
 
     /**

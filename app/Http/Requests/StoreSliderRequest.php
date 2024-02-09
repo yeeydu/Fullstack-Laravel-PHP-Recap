@@ -22,7 +22,13 @@ class StoreSliderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+
+            // 'title' => 'required|string|max:255',
+            // 'description' => 'required|string',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'is_active' => 'boolean',
+            // 'order' => 'required|number',
+
         ];
     }
 }
