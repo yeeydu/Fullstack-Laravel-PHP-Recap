@@ -14,8 +14,8 @@
         <div class="carousel-item active">
             <img src="{{asset('storage/'. $slide->image)}}" class="d-block w-100" alt="Products slides" >
             <div class="carousel-caption d-none d-md-block">
-                <h1 class="text-info">{{ $slide->title }}</h1>
-                <h4 class="text-secondary">{!! $slide->description !!}</h4>
+                <h1 class="carousel-h1">{{ $slide->title }}</h1>
+                <h4 class="carousel-h4">{!! $slide->description !!}</h4>
             </div>
         </div>
         @endforeach
