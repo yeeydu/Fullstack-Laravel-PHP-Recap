@@ -67,7 +67,8 @@ class SliderController extends Controller
      */
     public function show(Slider $slider)
     {
-        //
+       
+        return view('admin.pages.sliders.show', ['slider' => $slider]);
     }
 
     /**

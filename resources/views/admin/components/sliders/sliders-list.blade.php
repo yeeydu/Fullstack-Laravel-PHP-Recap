@@ -18,10 +18,10 @@
     <h1>Slideshow</h1>
     <div class="pt-3">
         <a href="{{ url('admin/sliders/create') }}" class="btn btn-primary mr-3">Add Slide</a>
-        <p>Add & edit slides at homepage </p>
+
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-3">
             <input class="form-control" id="myFilter" type="text" placeholder="Search"> <br>
         </div>
