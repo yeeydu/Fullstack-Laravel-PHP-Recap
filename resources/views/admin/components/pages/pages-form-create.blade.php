@@ -1,7 +1,7 @@
 
 <div class="container">
     <h2>Add Page</h2>
-    <a href="{{ url('admin/page') }}" class="btn btn-primary">Back</a>
+    <a href="{{ url('admin/pages') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{route('page.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -52,7 +52,7 @@
             <div>
                 <span class="invalid-feedback" role="alert"></span>
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

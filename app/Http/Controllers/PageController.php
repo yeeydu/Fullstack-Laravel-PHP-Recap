@@ -68,7 +68,7 @@ class PageController extends Controller
         }
         $page->save();
 
-        return redirect('admin/page')->with('msg', 'Page created successfully.');
+        return redirect('admin/pages')->with('msg', 'Page created successfully.');
     }
 
     /**
@@ -130,7 +130,7 @@ class PageController extends Controller
 
         $page->save();
 
-        return redirect('admin/page')->with('msg', 'Item edited succesfully!');
+        return redirect('admin/pages')->with('msg', 'Item edited succesfully!');
     }
 
     /**
@@ -142,6 +142,6 @@ class PageController extends Controller
         Storage::deleteDirectory('public/images/pages/' . $page->id);
         $page->delete();
 
-        return redirect('admin/page')->with('msg', 'Item deleted succesfully!');
+        return redirect('admin/pages')->with('msg', 'Item deleted succesfully!');
     }
 }

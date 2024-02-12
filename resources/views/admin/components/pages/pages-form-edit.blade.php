@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Edit Page</h2>
-    <a href="{{ url('admin/page') }}" class="btn btn-primary">Back</a>
+    <a href="{{ url('admin/pages') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{route('page.update', ['id' => $page])}}" enctype="multipart/form-data">
         @method('PUT')
         @csrf

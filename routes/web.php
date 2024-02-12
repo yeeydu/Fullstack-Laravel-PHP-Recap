@@ -41,25 +41,25 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group([ 'middleware' => 'auth'], function () {
 
-    //Route::get('/admin/dashboard', 'SliderController@index')->name('slider.index');
+    Route::get('/admin/dashboard', 'SliderController@index')->name('slider.index');
     //Sliders with a resource controller
     Route::resource('admin/sliders', 'SliderController')->names('admin.sliders');
 
     // Page with separated routes
-    Route::get('/admin/page','PageController@index')->name('page.index');
+    Route::get('admin/pages','PageController@index')->name('page.index');
     Route::get('admin/page/create', 'PageController@create')->name('page.create');
     Route::post('admin/page/store','PageController@store')->name('page.store');
     Route::get('admin/page/{id}', 'PageController@show')->name('page.show');
     Route::get('admin/page/{id}/edit', 'PageController@edit')->name('page.edit');
-    Route::put('admin/page/{page}/{id}', 'PageController@update')->name('page.update');
+    Route::put('admin/page/{id}', 'PageController@update')->name('page.update');
     Route::delete('admin/page/{page}', 'PageController@destroy')->name('page.destroy');
 
-    Route::get('/admin/products','ProductController@index')->name('product.index');
+    Route::get('admin/products','ProductController@index')->name('product.index');
     Route::get('admin/product/create', 'ProductController@create')->name('product.create');
     Route::post('admin/product/store','ProductController@store')->name('product.store');
     Route::get('admin/product/{id}', 'ProductController@show')->name('product.show');
     Route::get('admin/product/{id}/edit', 'ProductController@edit')->name('product.edit');
-    Route::put('admin/product/{product}/{id}', 'ProductController@update')->name('product.update');
+    Route::put('admin/product/{id}', 'ProductController@update')->name('product.update');
     Route::delete('admin/product/{product}', 'ProductController@destroy')->name('product.destroy');
 
 });

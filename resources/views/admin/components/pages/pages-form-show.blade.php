@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Show</h2>
-    <a href="{{ url('admin/page') }}" class="btn btn-primary">Back</a>
+    <a href="{{ url('admin/pages') }}" class="btn btn-primary">Back</a>
 
     <h3 class="mt-4"> {{$page->title}}</h3>
     <div class="row mb-4">
