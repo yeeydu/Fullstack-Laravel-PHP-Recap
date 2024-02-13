@@ -12,8 +12,7 @@
                         </a>
                     </li>
                     <li class="@if(Request::path()== 'admin/dashboard/*') active @endif">
-                        <a href="{{ url('admin/dashboard') }}"
-                            class="nav-link px-0 align-middle">
+                        <a href="{{ url('admin/dashboard') }}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                         </a>
                     </li>
@@ -23,8 +22,7 @@
                         </a>
                     </li>
                     <li class="@if(Request::path()== 'admin/products/*') active @endif">
-                        <a href="{{url('admin/products')}}"
-                            class="nav-link px-0 align-middle">
+                        <a href="{{url('admin/products')}}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
                         {{-- <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                             <li class="w-100">
@@ -42,9 +40,9 @@
                         </ul> --}}
                     </li>
                     <li class="@if(Request::path()== 'admin/categories/*') active @endif">
-                        <a href="{{url('admin/categories')}}" data-bs-toggle="collapse"
-                            class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Categories</span></a>
+                        <a href="{{url('admin/categories')}}" class="nav-link px-0 align-middle ">
+                            <i class="fs-4 bi-bootstrap"></i> <span
+                                class="ms-1 d-none d-sm-inline">Categories</span></a>
                     </li>
                     <li class="@if(Request::path() == 'admin/customers/*') active @endif">
                         <a href="{{url('admin/customers')}}" class="nav-link px-0 align-middle">
