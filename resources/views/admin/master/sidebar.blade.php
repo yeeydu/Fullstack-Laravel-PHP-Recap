@@ -11,18 +11,19 @@
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline small">Site Home</span>
                         </a>
                     </li>
-                    <li class="@if(Request::path()== 'admin/dashboard') active @endif">
+                    <li class="@if(Request::path()== 'admin/dashboard/*') active @endif">
                         <a href="{{ url('admin/dashboard') }}"
                             class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                         </a>
                     </li>
-                    <li class="@if(Request::path()== 'admin/page') active @endif">
-                        <a href="{{url('admin/page')}}" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Pages</span></a>
+                    <li class="@if(Request::is('admin/pages/*')) active @endif">
+                        <a href="{{ url('admin/pages') }}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Páginas</span>
+                        </a>
                     </li>
-                    <li class="@if(Request::path()== 'admin/products') active @endif">
-                        <a href="{{url('admin/products')}}"  
+                    <li class="@if(Request::path()== 'admin/products/*') active @endif">
+                        <a href="{{url('admin/products')}}"
                             class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
                         {{-- <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
@@ -40,24 +41,14 @@
                             </li>
                         </ul> --}}
                     </li>
-                    <li class="@if(Request::path()== 'admin/customers') active @endif">
-                        <a href="{{url('admin/customers')}}" data-bs-toggle="collapse"
+                    <li class="@if(Request::path()== 'admin/categories/*') active @endif">
+                        <a href="{{url('admin/categories')}}" data-bs-toggle="collapse"
                             class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Customers</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Customers</span>
-                                    List</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Customers</span>
-                                    2</a>
-                            </li>
-                        </ul>
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Categories</span></a>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Other</span> </a>
+                    <li class="@if(Request::path() == 'admin/customers/*') active @endif">
+                        <a href="{{url('admin/customers')}}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
                     </li>
                 </ul>
                 <hr>
