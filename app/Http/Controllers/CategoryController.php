@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'desc')->paginate(10);
         return view('admin.pages.categories.index', ['categories' => $categories]);
     }
 
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
         $this->validate($request, [
             'title' => 'required|string|max:255',
