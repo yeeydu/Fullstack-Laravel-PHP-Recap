@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.pages.categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -21,15 +24,25 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $category = new Category();
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->save();
+
+        return redirect('admin/categories')->with('msg', 'Item created successfully');
     }
 
     /**
@@ -37,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.pages.categories.show', ['category' => $category]);
     }
 
     /**
@@ -45,7 +58,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.pages.categories.edit', ['category' => $category]);
     }
 
     /**
@@ -53,7 +66,17 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $category = Category::find($category->id);
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->save();
+
+        return redirect('admin/categories')->with('msg', 'Item updated successfully');
     }
 
     /**
@@ -61,6 +84,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category = Category::find($category->id);
+        $category->delete();
+
+        return redirect('admin/categories')->with('msg', 'Item deleted successfully');
     }
 }
