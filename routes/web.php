@@ -46,6 +46,7 @@ Route::group([ 'middleware' => 'auth'], function () {
     //Sliders && Categories with a resource controller
     Route::resource('admin/sliders', 'SliderController')->names('admin.sliders');
     Route::resource('admin/categories', 'CategoryController')->names('admin.categories');
+    Route::resource('admin/subcategories', 'SubcategoryController')->names('admin.subcategories');
 
     // Page with separated routes
     Route::get('admin/pages','PageController@index')->name('page.index');
