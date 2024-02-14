@@ -1,6 +1,6 @@
 <div class="container">
-    <h2>Add Subategory</h2>
-    <a href="{{ url('admin/categories') }}" class="btn btn-primary">Back</a>
+    <h2>Add Subcategory</h2>
+    <a href="{{ url('admin/subcategories') }}" class="btn btn-primary">Back</a>
     <form method="POST" action="{{url('/admin/subcategories')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group mt-4">
@@ -32,6 +32,16 @@
                 @enderror
         </div>
             <!--.parent id-->
+            <div class="form-group">
+                <label for="category">Category (parent):</label>
+                <select class="form-control" id="parent_id" name="parent_id">
+                    <option value="">Select</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 </div>

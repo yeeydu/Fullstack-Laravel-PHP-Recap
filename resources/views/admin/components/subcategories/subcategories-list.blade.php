@@ -47,15 +47,15 @@
                         <td class=" ">{{$subcategory->title}}</td>
                         <td class="hide-with-media">{!! strip_tags(substr($subcategory->description,0, 40)) !!}</td>
                         <td class="hide-with-media">{!! strip_tags(substr($subcategory->slug,0, 40)) !!}</td>
-                        <td class="hide-with-media">{!! strip_tags(substr($subcategory->parent_id,0, 40)) !!}</td>
+                        <td class="hide-with-media" >{!! strip_tags(substr($subcategory->parent->title,0, 40)) !!}</td>
                         <td class=" ">
                             <div class="pr-1 d-lg-inline-flex ">
-                                <a href="{{url('admin/categories/' . $subcategory->id)}}" type="button"
+                                <a href="{{url('admin/subcategories/' . $subcategory->id)}}" type="button"
                                     class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
                                 @auth
-                                <a href="{{url('admin/categories/' . $subcategory->id . '/edit')}}" type="button"
+                                <a href="{{url('admin/subcategories/' . $subcategory->id . '/edit')}}" type="button"
                                     class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <form action="{{url('admin/categories/' . $subcategory->id)}}" method="POST">
+                                <form action="{{url('admin/subcategories/' . $subcategory->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-outline-danger show_confirm"><i

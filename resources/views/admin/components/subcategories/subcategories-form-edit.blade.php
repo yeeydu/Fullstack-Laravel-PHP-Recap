@@ -33,7 +33,16 @@
                 <strong>{{ $message }}</strong>
                 @enderror
         </div>
-        <!---- parent_id-->
+        <!--.parent id-->
+        <div class="form-group">
+            <label for="category">Category (parent):</label>
+            <select class="form-control" id="parent_id" name="parent_id">
+                <option value="">Select</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary show_confirm_edit mt-2">Update</button>
     </form>
 </div>
