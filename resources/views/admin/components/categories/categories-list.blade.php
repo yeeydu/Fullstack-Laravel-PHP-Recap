@@ -34,6 +34,7 @@
                     <tr>
                         <th class="sort" scope="col">Title <i class="fa-solid fa-arrow-down-a-z"></i></th>
                         <th class="hide-with-media" scope="col">Description</th>
+                        <th class="hide-with-media" scope="col">Slug</th>
                         <th scope="col">Action</th>
                         <th class="sort" scope="col">Order<i class="fa-solid fa-arrow-down-a-z"></i></th>
                     </tr>
@@ -44,6 +45,7 @@
 
                         <td class=" ">{{$category->title}}</td>
                         <td class="hide-with-media">{!! strip_tags(substr($category->description,0, 40)) !!}</td>
+                        <td class="hide-with-media">{!! strip_tags(substr($category->slug,0, 40)) !!}</td>
                         <td class=" ">
                             <div class="pr-1 d-lg-inline-flex ">
                                 <a href="{{url('admin/categories/' . $category->id)}}" type="button"

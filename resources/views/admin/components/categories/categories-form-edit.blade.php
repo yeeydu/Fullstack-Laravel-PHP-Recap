@@ -13,6 +13,15 @@
                 <strong>{{ $message }}</strong>
                 @enderror
         </div>
+        <div class="form-group mt-4">
+            <label for="exampleInputPassword1">Slug</label>
+            <input type="text" name="slug" id="slug" autocomplete="slug" placeholder="Type slug" class="form-control @error('slug')
+                    is-invalid
+                @enderror" value="{{ $category->slug }}" required aria-describedby="nameHelp">
+            @error('slug') <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                @enderror
+        </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Descrição</label>
             <textarea rows="6" type="text" name="description" id="description" autocomplete="description"
