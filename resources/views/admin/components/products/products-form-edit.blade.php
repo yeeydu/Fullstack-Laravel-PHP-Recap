@@ -123,7 +123,7 @@
             <div class="col mb-4">
                 <label for="exampleInputPassword1">Sale Price €</label>
                 <input type="sale_price" name="sale_price" id="sale_price" autocomplete="sale_price"
-                    placeholder="€€ sale price" class="form-control @error('prisale_pricece')
+                    placeholder="€ sale price" class="form-control @error('prisale_pricece')
                     is-invalid
                 @enderror" value="{{ old('sale_price') }}" aria-describedby="nameHelp">
                 @error('sale_price') <span class="invalid-feedback" role="alert">

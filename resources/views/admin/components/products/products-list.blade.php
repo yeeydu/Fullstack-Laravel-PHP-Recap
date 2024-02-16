@@ -44,7 +44,7 @@
                 <td>{{ substr($product->brand ,0, 80) }}</td>
                 <td>{{ substr($product->color ,0, 80) }}</td>
                 <td>{{ substr($product->size ,0, 80) }}</td>
-                <td>{{ substr($product->price ,0, 80) }} €</td>
+                <td>{{ number_format($product->price, 2)}}€</td>
                 <td>C. {{ substr($product->category->title ,0, 80) }}<br>Sub. {{ substr($product->subcategory->title ,0,
                     80) }}</td>
                 <td>

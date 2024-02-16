@@ -68,13 +68,13 @@
         <div class="col">
             <strong>Price</strong>
             <div class="show-style">
-                {!!$product->price!!} €
+                {{ number_format($product->price, 2)}}€
             </div>
         </div>
         <div class="col">
             <strong>Sale Price</strong>
             <div class="show-style">
-                {!!$product->sale_price!!} €
+                {{ number_format($product->sale_price, 2)}}€
             </div>
         </div>
         <div class="col">
