@@ -82,7 +82,7 @@
              <div class="col mb-4">
                 <label for="category">Category*:</label>
                 <select class="form-control" id="category_id" name="category_id" @error('category_id') is-invalid @enderror>
-                    <option elected value="{{ old('category_id') }}">Select</option>
+                    <option selected value="{{ $product->category->title  }}">Select</option>
                     @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                     @endforeach
@@ -97,7 +97,7 @@
                 <select class="form-control" id="subcategory_id" name="subcategory_id" @error('category_id') is-invalid @enderror>
                     <option value="">Select</option>
                     @foreach($subcategories as $subcategory)
-                    <option value="{{ $subcategory->id }}">{{ $subcategory->title }}</option>
+                    <option value="{{  $product->subcategory->title }}">{{ $subcategory->title }}</option>
                     @endforeach
                 </select>
                 @error('subcategory_id')  <span class="invalid-feedback" role="alert">
@@ -116,7 +116,7 @@
                 <label for="exampleInputPassword1">Sale Price €</label>
                 <input type="sale_price" name="sale_price" id="sale_price" autocomplete="sale_price" placeholder="€€ sale price" class="form-control @error('prisale_pricece')
                     is-invalid
-                @enderror" value="{{ old('sale_price') }}"  aria-describedby="nameHelp">
+                @enderror" value="{{  $product->sale_price  }}"  aria-describedby="nameHelp">
                 @error('sale_price') <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                     @enderror
