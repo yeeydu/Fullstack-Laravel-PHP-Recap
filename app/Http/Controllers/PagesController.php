@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Page;
-use App\Models\Products;
+use App\Models\Product;
+use App\Models\Product_image;
 use App\Models\Slider;
 
 class PagesController extends Controller
@@ -34,9 +35,9 @@ class PagesController extends Controller
     {
 
         $productsPage = Page::where('title', 'Products')->where('is_active', '1')->first();
-        // $page = Page::where('title', 'Product')->first();
-        // $products = Products::all();
-        return view('pages/products', ['productsPage' => $productsPage]);
+        $products = Product::all();
+        $images = Product_image::all();
+        return view('pages/products', ['productsPage' => $productsPage, 'products' => $products, 'images' => $images]);
     }
 
     public function Contact()
