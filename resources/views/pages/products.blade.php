@@ -4,26 +4,33 @@
 <div class="container">
 
     @if($productsPage)
+    <div class="mb-4">
+        <h1>{{ $productsPage->title }}</h1>
 
-    <h1>{{ $productsPage->title }}</h1>
+        @if($productsPage->image)
+        <div>
+            <img class="page_img" src="{{ asset('storage/' . $productsPage->image) }}" alt="{{ $productsPage->title }}">
+        </div>
+        @endif
 
-    @if($productsPage->image)
-    <div>
-        <img class="page_img" src="{{ asset('storage/' . $productsPage->image) }}" alt="{{ $productsPage->title }}">
+        <p>{{ $productsPage->description }}</p>
+
+        @else
+        <p> No content!</p>
     </div>
     @endif
-
-    <p>{{ $productsPage->description }}</p>
-
-    @else
-    <p> No content!</p>
-    @endif
-
-
     <!--- Products list --->
-
-
-
+    @if($products)
+    <div>
+        <div class="row">
+            @foreach ($products as $item)
+            <div class="col-lg-3 col-md-6  col-sm-12 mb-4">
+                @include('pages.productCard')
+            </div>
+            @endforeach
+        </div>
+    </div>
+    @endif
 </div>
 
 @endsection
