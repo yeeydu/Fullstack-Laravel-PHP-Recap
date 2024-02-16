@@ -84,7 +84,7 @@
                 <select class="form-control" id="category_id" name="category_id" @error('category_id') is-invalid @enderror>
                     <option selected value="">Select</option>
                     @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected @endif>{{ $category->title }}</option>
                     @endforeach
                 </select>
                 @error('category_id')  <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
                 <select class="form-control" id="subcategory_id" name="subcategory_id" @error('subcategory_id') is-invalid @enderror>
                     <option value="">Select</option>
                     @foreach($subcategories as $subcategory)
-                    <option value="{{  $subcategory->id }}">{{ $subcategory->title }}</option>
+                    <option value="{{  $subcategory->id }}"  @if(old('subcategory_id') == $subcategory->id) selected @endif>{{ $subcategory->title }}</option>
                     @endforeach
                 </select>
                 @error('subcategory_id')  <span class="invalid-feedback" role="alert">
