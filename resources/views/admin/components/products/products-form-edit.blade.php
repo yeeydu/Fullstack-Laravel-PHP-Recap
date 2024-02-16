@@ -165,7 +165,7 @@
                     @if ($image->product_id == $product->id)
                     <img class="img-fluid" src="{{ asset('storage/' . $image->url) }}" alt="image"
                         style="max-height: 80px" />
-                    <form action="{{ route('delete.image', $image->id) }}" method="POST">
+                    {{-- <form action="{{ route('delete.image', $image->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button
@@ -173,7 +173,7 @@
                             class="btn btn-outline-danger btn-sm" type="submit">
                             X
                         </button>
-                    </form>
+                    </form> --}}
                     @endif
                     @endforeach
                     @endif
