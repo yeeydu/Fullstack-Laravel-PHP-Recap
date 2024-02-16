@@ -15,7 +15,7 @@
         </button>
     </div>
     @endif
-    <h1>Categories</h1>
+    <h1>SubCategories</h1>
     <div class="pt-3">
         <a href="{{ url('admin/subcategories/create') }}" class="btn btn-primary mr-3">Add Subcategory</a>
 

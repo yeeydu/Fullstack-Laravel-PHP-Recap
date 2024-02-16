@@ -62,13 +62,13 @@
                 <td>{{$product->is_active ? 'Active' : 'Inactive'}}</td>
                 <td class="">
                     <div class="pr-1 d-inline-flex">
-                        <a href="{{url('admin/products/' . $product->id)}}" type="button"
+                        <a href="{{url('admin/product/' . $product->id)}}" type="button"
                             class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
                         @auth
-                        <a href="{{url('admin/products/' . $product->id . '/edit')}}" type="button"
+                        <a href="{{url('admin/product/' . $product->id . '/edit')}}" type="button"
                             class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                         <!-----  Desativar Eliminar pagina   ---->
-                        <form action="{{ url('admin/products/' . $product->id) }}" method="POST">
+                        <form action="{{ url('admin/product/' . $product->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger show_confirm">
