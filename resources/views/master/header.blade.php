@@ -1,11 +1,11 @@
 <div class=" header">
     <nav class="navbar navbar-expand-lg bg-light ">
         <div class="container">
-            <a class="navbar-brand" href="/"><img class="logo" src="img/products-logo.png" alt="products-logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="navbar-brand" href="/"><img class="logo" src="img/products-logo.png" alt="products-logo"></a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -17,12 +17,12 @@
                             href="{{ url('about') }} ">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle " data-hover="dropdown" role="button" aria-expanded="false" id="navbarDropdownMenuLink"
-                            @if (Request::is('products')) active @endif aria-expanded="false"   aria-haspopup="true"
-                            href="{{ url('products') }}">
+                        <a class="nav-link dropdown-toggle " data-hover="dropdown" role="button" aria-expanded="false"
+                            id="navbarDropdownMenuLink" @if (Request::is('products')) active @endif
+                            aria-expanded="false" aria-haspopup="true" href="{{ url('products') }}">
                             Products
                         </a>
-                        <ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">Product Cat 1</a></li>
                             <li><a class="dropdown-item" href="#">Product Cat 2</a></li>
                             <li><a class="dropdown-item" href="#">Product Cat 3</a></li>
@@ -72,5 +72,4 @@
             </div>
         </div>
     </nav>
-
 </div>
