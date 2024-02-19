@@ -20,7 +20,7 @@
     </div>
 
     <h1>Pages</h1>
-
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -67,5 +67,6 @@
             @endforeach
         </tbody>
     </table>
+    </div>
     {{ $pages->links('pagination::bootstrap-4') }}
 </div>

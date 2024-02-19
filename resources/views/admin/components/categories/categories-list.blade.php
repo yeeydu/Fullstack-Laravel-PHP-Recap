@@ -27,8 +27,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="table-responsive">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -70,7 +69,6 @@
                     @endif
                 </tbody>
             </table>
-            {{ $categories->links('pagination::bootstrap-4') }}
         </div>
-    </div>
+            {{ $categories->links('pagination::bootstrap-4') }}
 </div>

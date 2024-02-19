@@ -20,7 +20,7 @@
     </div>
 
     <h1>Products</h1>
-
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -36,7 +36,7 @@
                 <th scope="col">Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             @foreach($products as $product)
             <tr>
                 <td scope="row">{{$product->name}}</td>
@@ -82,5 +82,6 @@
             @endforeach
         </tbody>
     </table>
+    </div>
     {{ $products->links('pagination::bootstrap-4') }}
 </div>
