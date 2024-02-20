@@ -22,9 +22,9 @@
     <!--- Products list --->
     @if($products)
     <div>
-        <div class="row">
+        <div class="row mx-auto">
             @foreach ($products as $item)
-            <div class="col-lg-3 col-md-6  col-sm-12 mb-4">
+            <div class="col-lg-3 col-md-6  col-sm-12 mb-4 ">
                 @include('pages.productCard')
             </div>
             @endforeach

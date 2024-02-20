@@ -2,24 +2,23 @@
 @section('content')
 
 <div class="container mb-8">
-    <h2>Show</h2>
-    <a href="{{ url('products') }}" class="btn btn-primary">Back</a>
+    <a href="{{ url('products') }}" class="btn btn-primary mt-4">Back</a>
 
     <h3 class="mt-4"> {{$product->name}}</h3>
     <div class="row mb-4">
-        <div class="col mb-4">
+        <div class="col mb-4 mr-4">
             <strong>Image</strong>
-            <div class="w-100">
+            <div >
                 @if ($prod_images->isEmpty())
                 <p>No Image</p>
                 @else
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">
                         @foreach ($prod_images as $index =>  $image)
                         @if ($image->product_id == $product->id)
                         <button type="button" data-bs-target="#carouselExampleIndicators"
                             data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif"
-                            aria-current="true" aria-label="Slide {{ $loop->index+ 1 }}"></button>
+                            aria-current="true" aria-label="Slide {{ $loop->index + 1 }}"></button>
                             @endif
                         @endforeach
                     </div>
@@ -45,43 +44,38 @@
                 @endif
             </div>
         </div>
-        <div class="col">
+        <div class="col mb-2">
             <div>
-                <div class="col">
+                <div class="col mb-2">
                     <strong>Price</strong>
                     <div class="show-style">
                         {{ number_format($product->price, 2)}}€
                     </div>
                 </div>
                 @if($product->sale_price > 0)
-                <div class="col">
+                <div class="col mb-2">
                     <strong>Sale Price</strong>
                     <div class="show-style">
                         {{ number_format($product->sale_price, 2)}}€
                     </div>
                 </div>
                 @endif
-            </div>
-        </div>
-    </div>
+                <div class="col mb-2">
+                    <strong>Brand</strong>
+                    <div class="mb-2">
+                        {!!$product->brand!!}
+                    </div>
 
-    <div class="row mb-4">
-        <div class="col">
-            <strong>Brand</strong>
-            <div class="show-style">
-                {!!$product->brand!!}
-            </div>
-        </div>
-        <div class="col">
-            <strong>Color</strong>
-            <div class="show-style">
-                {!!$product->color!!}
-            </div>
-        </div>
-        <div class="col">
-            <strong>Size</strong>
-            <div class="show-style">
-                {!!$product->size!!}
+                    <strong>Color</strong>
+                    <div class="mb-2">
+                        {!!$product->color!!}
+                    </div>
+
+                    <strong>Size</strong>
+                    <div class="mb-2">
+                        {!!$product->size!!}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -101,11 +95,11 @@
     </div>
 
     <strong>Summary</strong>
-    <div class="show-style">
+    <div class="mb-4">
         {!!$product->summary!!}
     </div>
     <strong>Description</strong>
-    <div class="mb-8">
+    <div class="mb-5 pb-5">
         {!!$product->description!!}
     </div>
 </div>
