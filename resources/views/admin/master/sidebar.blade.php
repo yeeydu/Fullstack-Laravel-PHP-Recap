@@ -55,7 +55,7 @@
                         </div>
                     </li>
                     <li class="@if(Request::path() == 'admin/customers/*') active @endif">
-                        <a href="{{url('admin/customers')}}" class="nav-link px-0 align-middle">
+                        <a href="{{url('#')}}" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
                     </li>
                 </ul>
