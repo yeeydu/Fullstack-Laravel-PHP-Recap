@@ -15,7 +15,11 @@ class PagesController extends Controller
     {
         $home = Page::where('title', 'Home')->where('is_active', '1')->first();
         $sliders = Slider::where('is_active', '1')->get();
-        return view('index', ['home' => $home, 'sliders' => $sliders]);
+
+        $products = Product::take(4)->get();
+        $images = Product_image::all();
+
+        return view('index', ['home' => $home, 'sliders' => $sliders, 'products' => $products, 'images' => $images]);
     }
 
     public function slider()

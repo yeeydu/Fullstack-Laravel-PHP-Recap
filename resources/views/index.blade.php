@@ -12,8 +12,8 @@
     <div class="carousel-inner">
         @foreach($sliders as $slide)
         <div class="carousel-item active">
-            <a href="{{$slide->link}}" >
-            <img src="{{asset('storage/'. $slide->image)}}" class="d-block w-100" alt="Products slides" >
+            <a href="{{$slide->link}}">
+                <img src="{{asset('storage/'. $slide->image)}}" class="d-block w-100" alt="Products slides">
             </a>
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="carousel-h1">{{ $slide->title }}</h1>
@@ -35,7 +35,7 @@
     </button>
 </div>
 @endif
-<div class="container">
+<div class="container mt-5 mb-5 pt-5 pb-5">
 
     @if($home)
 
@@ -49,6 +49,29 @@
     @else
     <p> No content!</p>
     @endif
+</div>
+
+<div class="bg-dark p-4">
+    <div class="container mt-5 mb-5">
+        @if($products)
+        <div>
+            <div class="row mx-auto">
+                @foreach ($products as $item)
+                <div class="col-xl-3 col-lg-4 col-md-6  col-sm-12 mb-4 ">
+                    @include('pages.productCard')
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @else
+        <h5>No products</h5>
+        @endif
+        <div class="text-center">
+            <a href="/products">
+            <button class="btn btn-outline-info" >More Products</button>
+            </a>
+        </div>
+    </div>
 </div>
 
 @endsection
