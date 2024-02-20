@@ -40,6 +40,17 @@ class PagesController extends Controller
         return view('pages/products', ['productsPage' => $productsPage, 'products' => $products, 'images' => $images]);
     }
 
+    public function product_info($id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return abort(404);
+        }
+        $prod_images = Product_image::all();
+
+        return view('pages/product-info', ['product' => $product, 'prod_images' => $prod_images]);
+    }
+
     public function Contact()
     {
         $contact = Page::where('title', 'Contact')->where('is_active', '1')->first();
