@@ -1,24 +1,3 @@
-{{--
-<article class="card">
-    @foreach ($images as $image)
-    @if($image->product_id == $item->id)
-    <img class="card__background" src="{{ asset('storage/' . $image->url) }}" alt="image" width="650" height="650" />
-    @break {{-- Exit the loop after the first image
-    @endif
-    @endforeach
-    <div class="card__content | flow">
-        <div class="card__content--container | flow">
-            <h2 class="card__title">{{$item->name}}</h2>
-            <p class="card__description">
-                {{$item->summary}}
-            </p>
-        </div>
-        <button class="card__button">Read more</button>
-    </div>
-</article>
---}}
-
-
 <div class="card" style="width: 18rem; hover">
     @foreach ($images as $image)
     @if($image->product_id == $item->id)
