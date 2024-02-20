@@ -6,8 +6,8 @@
 
     <h3 class="mt-4"> {{$product->name}}</h3>
     <div class="row mb-4">
-        <div class="col mb-4 mr-4">
-            <strong>Image</strong>
+        <div class="col mb-4">
+            <strong>Images</strong>
             <div >
                 @if ($prod_images->isEmpty())
                 <p>No Image</p>
@@ -26,7 +26,7 @@
                         @foreach ($prod_images as $key => $image)
                         @if ($image->product_id == $product->id)
                         <div class="carousel-item active">
-                            <img class="img-fluid" src="{{ asset('storage/' . $image->url) }}" alt="image"   />
+                            <img class="img-fluid" src="{{ asset('storage/' . $image->url) }}" alt="{{$product->name}}"   />
                         </div>
 
                         @endif
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
     <div class="row mb-4">
         <div class="col mb-4">
             <strong>Category</strong>
