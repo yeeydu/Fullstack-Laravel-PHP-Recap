@@ -30,7 +30,7 @@ Auth::routes();
 // ->namespace('App\Http\Controllers') -> use this namespace in the RouteServiceProvider to avoid having to specify it in each route
 Route::get('/', 'PagesController@index')->name('index');
 Route::get('/products', [PagesController::class, 'products'])->name('products');
-Route::get('/product/{id}', [PagesController::class, 'product_info'])->name('product_info');
+Route::get('/products/{product}', [PagesController::class, 'product_info'])->name('product_info');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/admin', 'HomeController@index')->name('admin');
