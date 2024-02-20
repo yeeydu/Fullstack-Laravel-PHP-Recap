@@ -24,7 +24,7 @@
     <div>
         <div class="row mx-auto">
             @foreach ($products as $item)
-            <div class="col-lg-3 col-md-6  col-sm-12 mb-4 ">
+            <div class="col-xl-3 col-lg-4 col-md-6  col-sm-12 mb-4 ">
                 @include('pages.productCard')
             </div>
             @endforeach
