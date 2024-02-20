@@ -8,7 +8,7 @@
     <div class="row mb-4">
         <div class="col mb-4">
             <strong>Images</strong>
-            <div >
+            <div class="w-auto">
                 @if ($prod_images->isEmpty())
                 <p>No Image</p>
                 @else
@@ -26,7 +26,7 @@
                         @foreach ($prod_images as $key => $image)
                         @if ($image->product_id == $product->id)
                         <div class="carousel-item active">
-                            <img class="img-fluid" src="{{ asset('storage/' . $image->url) }}" alt="{{$product->name}}"   />
+                            <img class="figure-img img-fluid rounded" src="{{ asset('storage/' . $image->url) }}" alt="{{$product->name}}" />
                         </div>
 
                         @endif
