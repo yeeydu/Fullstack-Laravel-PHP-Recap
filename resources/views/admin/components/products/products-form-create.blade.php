@@ -16,7 +16,7 @@
         <div class="form-group mb-4">
             <label for="exampleInputPassword1">Summary*</label>
 
-            <textarea rows="4" type="text" name="summary" id="summary" autocomplete="summary"
+            <textarea rows="2" type="text" name="summary" id="summary" autocomplete="summary"
                 placeholder="Type your summary" class="editor form-control  @error('summary')
             is-invalid
             @enderror" value="{{ old('summary') }}" required
@@ -29,7 +29,7 @@
         <div class="form-group mb-4">
             <label for="exampleInputPassword1">Description*</label>
 
-            <textarea rows="10" type="text" name="description" id="description" autocomplete="description"
+            <textarea rows="6" type="text" name="description" id="description" autocomplete="description"
                 placeholder="Type your description" class="editor form-control  @error('description')
             is-invalid
             @enderror" value="{{ old('description') }}" required
