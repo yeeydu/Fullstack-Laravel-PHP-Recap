@@ -75,4 +75,12 @@
     color: blueviolet;
 }
 
- 
+
+.msg {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+ }
