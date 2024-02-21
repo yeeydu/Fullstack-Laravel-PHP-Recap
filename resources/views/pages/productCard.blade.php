@@ -15,8 +15,8 @@
         <p class="card-text">{{ number_format( $item->price, 2)}}€</p>
         <form action="/add_to_cart" method="POST">
             @csrf
-            <input type="hidden" name="product_id" value="{{$item['id']}}">
-            <button class="btn btn-outline-dark">Add to Cart</button>
+            <input type="hidden" name="product_id" value="{{$item['id']}}" class="form-control">
+            <button class="btn btn-outline-dark"><i class="fa fa-shopping-cart"></i>Add to cart</button>
         </form>
         <p class="card-text">
             <strong>Brand:</strong> {{ $item->brand}}<br>
