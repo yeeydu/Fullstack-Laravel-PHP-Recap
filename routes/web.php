@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Auth\Events\Verified;
@@ -31,6 +32,7 @@ Auth::routes();
 Route::get('/', 'PagesController@index')->name('index');
 Route::get('/products', [PagesController::class, 'products'])->name('products');
 Route::get('/products/{product}', [PagesController::class, 'product_info'])->name('product_info');
+Route::post('add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/admin', 'HomeController@index')->name('admin');
