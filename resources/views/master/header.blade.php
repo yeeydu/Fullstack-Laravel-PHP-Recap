@@ -40,8 +40,11 @@
                     </li>
                 </ul>
             </div>
+            {{------- cart item count ----}}
+            <div class="nav-item">
+               <a class="cartlist nav-link" href="{{ route('cartlist') }}"><i class="fa fa-shopping-cart"></i>Cart({{$total}})</a>
+            </div>
             <div class="d-flex">
-                <div><i class="fa fa-shopping-cart"></i>Cart({{$total}})</div>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
