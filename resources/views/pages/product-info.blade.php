@@ -28,7 +28,7 @@
                         @if ($image->product_id == $product->id)
                         <div class="carousel-item active">
                             <img class="figure-img img-fluid rounded"
-                                style="object-fit: cover; width: 100%; height: 300px;"
+                                style="object-fit: cover; width: 100%;"
                                 src="{{ asset('storage/' . $image->url) }}" alt="{{$product->name}}" />
                         </div>
 
