@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Your routes here
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('/admin/dashboard', 'SliderController@index')->name('slider.index');
 
