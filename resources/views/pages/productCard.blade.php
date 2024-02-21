@@ -13,6 +13,11 @@
             <h5 class="card-title">{{$item->name}}</h5>
         </a>
         <p class="card-text">{{ number_format( $item->price, 2)}}€</p>
+        <form action="/add_to_cart" method="POST">
+            @csrf
+            <input type="hidden" name="product_id" value="{{$item['id']}}">
+            <button class="btn btn-outline-dark">Add to Cart</button>
+        </form>
         <p class="card-text">
             <strong>Brand:</strong> {{ $item->brand}}<br>
             <strong>Color:</strong> {{ $item->color}}<br>

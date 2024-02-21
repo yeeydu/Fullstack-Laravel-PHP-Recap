@@ -78,6 +78,11 @@
                     <div class="col-sm-6 mb-sm-4">
                         {!!$product->size!!}
                     </div>
+                    <form action="/add_to_cart" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{$product['id']}}">
+                        <button class="btn btn-outline-dark">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>
