@@ -1,3 +1,8 @@
+<?php // Cart items count
+    use App\Http\Controllers\CartController;
+    $total = CartController::cartItem();
+?>
+
 <div class=" header">
     <nav class="navbar navbar-expand-lg bg-light ">
         <div class="container">
@@ -5,7 +10,8 @@
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="/"><img class="logo" src="{{ asset('img/products-logo.png') }}" alt="products-logo"></a>
+            <a class="navbar-brand" href="/"><img class="logo" src="{{ asset('img/products-logo.png') }}"
+                    alt="products-logo"></a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -35,6 +41,7 @@
                 </ul>
             </div>
             <div class="d-flex">
+                <div><i class="fa fa-shopping-cart"></i>Cart({{$total}})</div>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
@@ -72,4 +79,7 @@
             </div>
         </div>
     </nav>
+    @if(session('msg'))
+    <p class="msg">{{session('msg')}}</p>
+@endif
 </div>
