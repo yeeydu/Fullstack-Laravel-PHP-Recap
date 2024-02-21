@@ -3,7 +3,7 @@
     @if($image->product_id == $item->id)
     <a href="{{url('products/' . $item->id .'_'.$item->name)}}">
         <img class="card-img-top hover" src="{{ asset('storage/' . $image->url) }}" alt="image"
-            style="object-fit: cover; width: 100%; height: 300px;" />
+            style="object-fit: contain; width: 100%; height: 200px;" />
     </a>
     @break {{-- Exit the loop after the first image --}}
     @endif

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
+use App\Models\Product_image;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+
 
 class CartController extends Controller
 {
@@ -29,7 +33,6 @@ class CartController extends Controller
         } else {
             return redirect('/login');
         }
-
     }
 
 
@@ -42,8 +45,16 @@ class CartController extends Controller
 
     function cartList()
     {
+        $userId = Auth::id();
+        $user = User::find($userId);
+        $images = Product_image::all();
+        // we will make join with product id to get item info
+        $itemsList = DB::table('carts')
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->where('carts.user_id', $userId)
+            ->select('products.*')
+            ->get();
 
+            return view('pages.cartlist', ['itemsList' => $itemsList, 'images' => $images, 'user'=> $user]);
     }
-
-
 }

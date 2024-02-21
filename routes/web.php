@@ -33,7 +33,7 @@ Route::get('/', 'PagesController@index')->name('index');
 Route::get('/products', [PagesController::class, 'products'])->name('products');
 Route::get('/products/{product}', [PagesController::class, 'product_info'])->name('product_info');
 Route::post('/add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
-Route::get('/cartlist', [CartController::class, 'cartList'])->name('cartList');
+Route::get('/cartlist', [CartController::class, 'cartList'])->name('cartlist');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/admin', 'HomeController@index')->name('admin');
