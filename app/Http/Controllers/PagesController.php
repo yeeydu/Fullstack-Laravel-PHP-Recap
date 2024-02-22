@@ -16,7 +16,7 @@ class PagesController extends Controller
         $home = Page::where('title', 'Home')->where('is_active', '1')->first();
         $sliders = Slider::where('is_active', '1')->get();
 
-        $products = Product::take(4)->get();
+        $products = Product::latest()->take(4)->get();
         $images = Product_image::all();
 
         return view('index', ['home' => $home, 'sliders' => $sliders, 'products' => $products, 'images' => $images]);
@@ -39,7 +39,7 @@ class PagesController extends Controller
     {
 
         $productsPage = Page::where('title', 'Products')->where('is_active', '1')->first();
-        $products = Product::all();
+        $products = Product::all()->sortByDesc('created_at');
         $images = Product_image::all();
         return view('pages/products', ['productsPage' => $productsPage, 'products' => $products, 'images' => $images]);
     }
