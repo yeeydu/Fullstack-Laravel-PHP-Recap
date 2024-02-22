@@ -54,7 +54,8 @@
                         @foreach ($prod_images as $image)
                             @if ($image->product_id == $product->id)
                             <img class="img-fluid" src="{{ asset('storage/' . $image->url) }}" alt="image"
-                                style="max-height: 40px" />
+                                style="max-height: 50px" />
+                                @break {{-- Exit the loop after the first image --}}
                             @endif
                         @endforeach
                     @endif
