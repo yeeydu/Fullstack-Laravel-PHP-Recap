@@ -50,7 +50,7 @@ class PagesController extends Controller
         if (!$product) {
             return abort(404);
         }
-        $prod_images = Product_image::all();
+        $prod_images = Product_image::where('product_id', $product->id)->get();
 
         return view('pages/product-info', ['product' => $product, 'prod_images' => $prod_images]);
     }

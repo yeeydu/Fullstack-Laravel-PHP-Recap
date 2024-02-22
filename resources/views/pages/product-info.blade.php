@@ -16,34 +16,30 @@
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                     <div class="carousel-indicators">
                         @foreach ($prod_images as $index => $image)
-                        @if ($image->product_id == $product->id)
-                        <button type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true"
-                            aria-label="Slide {{ $loop->index + 1 }}"></button>
-                        @endif
+                            @if ($image->product_id == $product->id)
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $loop->index + 1 }}"></button>
+                            @endif
                         @endforeach
                     </div>
                     <div class="carousel-inner">
-                        @foreach ($prod_images as $key => $image)
-                        @if ($image->product_id == $product->id)
-                        <div class="carousel-item active">
-                            <img class="figure-img img-fluid rounded"
-                                style="object-fit: cover; width: 100%;"
-                                src="{{ asset('storage/' . $image->url) }}" alt="{{$product->name}}" />
-                        </div>
-
-                        @endif
+                        @foreach ($prod_images as $index => $image)
+                            @if ($image->product_id == $product->id)
+                                <div class="carousel-item @if ($loop->first) active @endif">
+                                    <img class="figure-img img-fluid rounded" style="object-fit: cover; width: 100%;" src="{{ asset('storage/' . $image->url) }}" alt="{{ $product->name }}" />
+                                </div>
+                            @endif
                         @endforeach
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+
                 @endif
             </div>
         </div>
