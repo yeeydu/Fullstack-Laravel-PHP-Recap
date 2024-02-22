@@ -42,7 +42,7 @@
         @component('admin.master.sidebar')
         @endcomponent
         @if(session('msg'))
-            <p class="msg">{{session('msg')}}</p>
+        <p class="msg">{{session('msg')}}</p>
         @endif
         @yield('content')
     </main>
@@ -51,6 +51,8 @@
 
     <!-- Scripts ( defer execute at the end.)-->
     <script type="module" src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/project.js') }}" defer></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     @yield('script')
 </body>

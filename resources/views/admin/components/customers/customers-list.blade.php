@@ -14,12 +14,18 @@
         </button>
     </div>
     @endif
+    <h1>Customers</h1>
 
     {{-- <div class="m-2">
         <a href="{{ url('admin/page/create') }}" class="btn btn-primary mr-4">Add customer</a>
     </div> --}}
 
-    <h1>Customers</h1>
+    <div class="row mt-4">
+        <div class="col-md-6 col-sm-8" >
+            <input class="form-control" id="myFilter" type="text" placeholder="Search">
+        </div>
+    </div>
+
     <div class="table-responsive">
         <table class="table">
             <thead>

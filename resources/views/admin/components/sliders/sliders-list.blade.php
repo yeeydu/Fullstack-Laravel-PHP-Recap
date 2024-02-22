@@ -22,8 +22,8 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-3">
-            <input class="form-control" id="myFilter" type="text" placeholder="Search"> <br>
+        <div class="col-md-6 col-sm-8">
+            <input class="form-control" id="myFilter" type="text" placeholder="Search">
         </div>
     </div>
 
@@ -31,7 +31,7 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th class="sort" scope="col">Title <i class="fa-solid fa-arrow-down-a-z"></i></th>
+                    <th class="sort" scope="col">Title  </th>
                     <th class="hide-with-media" scope="col">Description</th>
                     <th class="hide-with-media" scope="col">Image</th>
                     <th class="hide-with-media" scope="col">Status</th>
