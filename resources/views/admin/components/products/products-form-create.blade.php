@@ -152,3 +152,25 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+{{-- show subcategory to select  accordingly of the category --}}
+<script>
+    document.getElementById('category_id').addEventListener('change', function() {
+        var categoryId = this.value;
+        var subcategoryDropdown = document.getElementById('subcategory_id');
+
+        // Clear existing options
+        subcategoryDropdown.innerHTML = '<option value="">Select</option>';
+
+        // Filter subcategories based on selected category
+        var filteredSubcategories = @json($subcategories->groupBy('parent_id')->toArray())[categoryId] || [];
+
+        // Add filtered subcategories as options
+        filteredSubcategories.forEach(function(subcategory) {
+            var option = document.createElement('option');
+            option.value = subcategory.id;
+            option.text = subcategory.title;
+            subcategoryDropdown.appendChild(option);
+        });
+    });
+</script>
