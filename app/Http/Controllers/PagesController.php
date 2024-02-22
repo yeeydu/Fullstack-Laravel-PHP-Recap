@@ -24,7 +24,7 @@ class PagesController extends Controller
 
     public function slider()
     {
-        $sliders = Slider::where('is_active', '1')->get();
+        $sliders = Slider::where('is_active', '1')->orderBy('order')->get();
         return view('index', ['sliders' => $sliders]); // Homepage with Carousel
     }
 
