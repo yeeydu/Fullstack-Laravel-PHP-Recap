@@ -59,6 +59,24 @@ class CartController extends Controller
     }
 
 
+
+    function orderNow()
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+        $images = Product_image::all();
+        // we will make join with product id to get item info
+        $total = DB::table('carts')
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->where('carts.user_id', $userId)
+            ->select('products.*', 'carts.id as cart_id')
+            ->sum('products.price');
+
+        return view('pages.ordernow', ['total' => $total, 'images' => $images, 'user' => $user]);
+    }
+
+
+
     function removeItem($id)
     {
         Cart::destroy($id);
