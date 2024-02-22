@@ -42,7 +42,7 @@
                 <th scope="col">Actions</th>
             </tr>
         </thead>
-        <tbody >
+        <tbody id="listTable">
             @foreach($products as $product)
             <tr>
                 <td scope="row">{{$product->name}}</td>

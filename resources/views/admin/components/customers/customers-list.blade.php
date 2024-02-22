@@ -36,7 +36,7 @@
                     {{-- <th scope="col">Actions</th> --}}
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="listTable">
                 @foreach($customers as $customer)
                 <tr>
                     <td scope="row">{{$customer->name}}</td>

@@ -44,10 +44,6 @@ Route::get('/ordernow', [CartController::class, 'orderNow'])->name('orderNow');
 Route::post('/orderplace', [CartController::class, 'orderPlace'])->name('orderPlace');
 Route::get('/myorders', [CartController::class, 'myOrders'])->name('myorders');
 
-//**  BACKEND ROUTES  */
-Route::group(['middleware' => 'auth'], function () {
-    // Your routes here
-});
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
 

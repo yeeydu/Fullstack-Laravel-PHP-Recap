@@ -37,7 +37,7 @@
                 <th scope="col">Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="listTable">
             @foreach($pages as $page)
             <tr>
                 <td scope="row">{{$page->title}}</td>
