@@ -30,13 +30,14 @@ Auth::routes();
 
 // ->namespace('App\Http\Controllers') -> use this namespace in the RouteServiceProvider to avoid having to specify it in each route
 Route::get('/', 'PagesController@index')->name('index');
-Route::get('/products', [PagesController::class, 'products'])->name('products');
-Route::get('/products/{product}', [PagesController::class, 'product_info'])->name('product_info');
-Route::post('/add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
-Route::get('/cartlist', [CartController::class, 'cartList'])->name('cartlist');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::get('/products', [PagesController::class, 'products'])->name('products');
+Route::get('/products/{product}', [PagesController::class, 'product_info'])->name('product_info');
 Route::get('/admin', 'HomeController@index')->name('admin');
+Route::post('/add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
+Route::get('/cartlist', [CartController::class, 'cartList'])->name('cartlist');
+Route::get('/removecart/{id}', [CartController::class, 'removeCart'])->name('removeCart');
 
 //**  BACKEND ROUTES  */
 Route::group(['middleware' => 'auth'], function () {
