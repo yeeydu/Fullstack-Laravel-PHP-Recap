@@ -35,6 +35,8 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/products', [PagesController::class, 'products'])->name('products');
 Route::get('/products/{product}', [PagesController::class, 'product_info'])->name('product_info');
 Route::get('/admin', 'HomeController@index')->name('admin');
+
+// client orders routes
 Route::post('/add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/cartlist', [CartController::class, 'cartList'])->name('cartlist');
 Route::get('/removeitem/{id}', [CartController::class, 'removeItem'])->name('removeItem');

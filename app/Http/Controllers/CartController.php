@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
+
+    /**
+     * add item to cart
+     */
     public function addToCart(Request $request)
     {
 
@@ -37,13 +41,18 @@ class CartController extends Controller
     }
 
 
+    /**
+     * send all items count from user id to header cart icon
+     */
     static function cartItem()
     {
         $userId = Auth::id();
         return Cart::where('user_id', $userId)->count();
     }
 
-
+    /**
+     * products cart list
+     */
     function cartList()
     {
         $userId = Auth::id();
@@ -59,7 +68,9 @@ class CartController extends Controller
         return view('pages.cartlist', ['itemsList' => $itemsList, 'images' => $images, 'user' => $user]);
     }
 
-
+    /**
+     * list total of order products
+     */
 
     function orderNow()
     {
@@ -77,6 +88,9 @@ class CartController extends Controller
     }
 
 
+    /**
+     * finish order with payment
+     */
     function orderPlace(Request $request)
     {
         $userId = Auth::id();
@@ -102,6 +116,9 @@ class CartController extends Controller
     }
 
 
+    /**
+     * remove item from cart
+     */
     function removeItem($id)
     {
         Cart::destroy($id);
