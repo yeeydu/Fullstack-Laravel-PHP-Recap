@@ -42,8 +42,9 @@
             </div>
             {{------- cart item count ----}}
             <div class="nav-item">
-               <a class="cartlist nav-link" href="{{ route('cartlist') }}"><i class="fa fa-shopping-cart"></i>Cart({{$total}})</a>
+               <a class="cartlist nav-link" href="{{ route('cartlist') }}"><i class="fa fa-shopping-cart"></i>Cart({{$total}}) </a>
             </div>
+
             <div class="d-flex">
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
@@ -60,6 +61,9 @@
                     </li>
                     @endif
                     @else
+                    <div class="nav-item">
+                        <a class=" nav-link" href="{{ route('myorders') }}"> My orders</a>
+                    </div>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

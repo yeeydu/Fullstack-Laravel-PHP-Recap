@@ -115,6 +115,23 @@ class CartController extends Controller
         return redirect('/products');
     }
 
+    /**
+     * client/user myorders list
+     */
+    function myOrders()
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+        $images = Product_image::all();
+        // we will make join with product id to get item info
+        $orders = DB::table('orders')
+            ->join('products', 'orders.product_id', '=', 'products.id')
+            ->where('orders.user_id', $userId)
+            ->get();
+
+        return view('pages.myorders', ['orders' => $orders, 'images' => $images, 'user' => $user]);
+    }
+
 
     /**
      * remove item from cart
