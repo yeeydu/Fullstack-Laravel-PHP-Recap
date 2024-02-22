@@ -4,13 +4,13 @@
 @if ($sliders->isNotEmpty())
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
-        @foreach($sliders as $slide)
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $loop->index }}"
-            class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide 1"></button>
+        @foreach($sliders as $index => $slide)
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}"
+            class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $loop->index + 1 }}"></button>
         @endforeach
     </div>
     <div class="carousel-inner">
-        @foreach($sliders as $slide)
+        @foreach($sliders as $index => $slide)
         <div class="carousel-item active">
             <a href="{{$slide->link}}">
                 <img src="{{asset('storage/'. $slide->image)}}" class="d-block w-100" alt="Products slides">
