@@ -40,19 +40,19 @@
                         </ul> --}}
                     </li>
                     <li class="@if(Request::path()== 'admin/categories/*') active @endif" >
-                        <a href="{{url('admin/categories')}}"  >
+                        <a href="{{url('admin/categories')}}" class="nav-link px-0 align-middle" >
                             <i class="fs-4 bi-clipboard2-data-fill"></i><span class="ms-1 d-none d-sm-inline">Categories</span>
                         </a>
-                        <div aria-labelledby="navbarDropdown">
+
                             <ul class="submenu">
                                 <!-- Add more subs -->
                                 <li class="dropdown-item">
-                                    <a href="{{ url('admin/subcategories') }}">
+                                    <a href="{{ url('admin/subcategories') }}" class="nav-link px-0 align-middle">
                                         <i class="bi bi-clipboard2-data"></i><span class="ms-1 d-none d-sm-inline">Subcategories</span>
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+
                     </li>
                     <li class="@if(Request::path() == 'admin/customers/*') active @endif">
                         <a href="{{url('admin/customers')}}" class="nav-link px-0 align-middle">
