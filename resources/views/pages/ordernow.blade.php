@@ -15,7 +15,7 @@
         <tbody>
             <tr>
                 <td>Order amount</td>
-                <td>€ {{$total}}</td>
+                <td>{{ number_format( $total, 2)}} €</td>
             </tr>
             <tr>
                 <td>Tax</td>
@@ -27,30 +27,31 @@
             </tr>
             <tr>
                 <td> <strong>Total</strong> </td>
-                <td>€ {{$total}}</td>
+                <td>{{ number_format( $total, 2)}} €</td>
             </tr>
         </tbody>
     </table>
 
 
-    <form class="mb-4 mt-4">
+    <form class="mb-4 mt-4" action="/orderplace" method="POST">
+        @csrf
         <div class="form-group">
             <label for="exampleInputEmail1">Address</label>
-            <input type="text" class="form-control" name="address" id="address" placeholder="Enter address">
+            <input type="text" class="form-control" name="address" id="address" required placeholder="Enter address">
             </input>
         </div>
         <div class="form-group">
             <label for="pwd">Payment method:</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+            <input class="form-check-input" type="radio" name="payment" id="payment" value="card"
                 checked>
             <label class="form-check-label" for="exampleRadios1">
                 Credit / Debit Card
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="payment" id="payment" value="paypal">
             <label class="form-check-label" for="exampleRadios2">
                 Paypal
             </label>

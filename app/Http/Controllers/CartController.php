@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Product_image;
 use App\Models\User;
@@ -75,6 +76,30 @@ class CartController extends Controller
         return view('pages.ordernow', ['total' => $total, 'images' => $images, 'user' => $user]);
     }
 
+
+    function orderPlace(Request $request)
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+        $allCart = Cart::where('user_id', $userId)->get();
+
+        foreach ($allCart as $cart) {
+            $order = new Order();
+            $order->user_id = $cart['user_id'];
+            $order->product_id = $cart['product_id'];
+            $order->status = 'pending';
+            $order->payment_method = $request->payment;
+            $order->payment_status = 'pending';
+            $order->address = $request->address;
+            $order->save();
+
+            // delete item from cart
+            $allCart = Cart::where('user_id', $userId)->delete();
+        }
+        $request->input();
+
+        return redirect('/products');
+    }
 
 
     function removeItem($id)

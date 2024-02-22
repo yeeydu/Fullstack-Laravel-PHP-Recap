@@ -4,10 +4,10 @@
 <div class="container">
     <!--- item list --->
     <h3>@if($user){{$user->name}} this are @endif your products</h3>
+    @if($itemsList)
     <div class="col-md-3 col-sm-12">
         <a href="/ordernow" class="btn btn-outline-success">Order now</a>
     </div>
-    @if($itemsList)
     <div class="mt-4 mb-4 pt-4 pb-4">
         @foreach ($itemsList as $item)
         <div class="row mb-3">
