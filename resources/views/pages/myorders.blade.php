@@ -4,7 +4,7 @@
 <div class="container">
     <!--- item list --->
     <h3>@if($user){{$user->name}} this are @endif your orders</h3>
-    @if($orders)
+    @if($orders && count($orders) > 0)
     <div class="mt-4 mb-4 pt-4 pb-4">
         @foreach ($orders as $item)
         <div class="row mb-3">
@@ -46,7 +46,7 @@
         @endforeach
     </div>
     @else
-    <p>please add products to your cart</p>
+    <p>you have no orders</p>
     @endif
 </div>
 

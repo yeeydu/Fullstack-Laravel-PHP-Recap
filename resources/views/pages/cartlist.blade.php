@@ -4,7 +4,7 @@
 <div class="container">
     <!--- item list --->
     <h3>@if($user){{$user->name}} this are @endif your products</h3>
-    @if($itemsList)
+    @if($itemsList && count($itemsList) > 0)
     <div class="col-md-3 col-sm-12">
         <a href="/ordernow" class="btn btn-outline-success">Order now</a>
     </div>
