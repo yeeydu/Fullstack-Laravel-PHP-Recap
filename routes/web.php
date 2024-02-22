@@ -77,4 +77,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     //delete a single product image from products_images table
     Route::delete('admin/product/image/{image}', 'ProductController@deleteImage')->name('delete.image');
+
+    // get all customers/clients/users
+    Route::get('admin/customers', 'CustomerController@index')->name('customer.index');
 });
