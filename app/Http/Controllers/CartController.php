@@ -59,7 +59,7 @@ class CartController extends Controller
     }
 
 
-    function removeCart($id)
+    function removeItem($id)
     {
         Cart::destroy($id);
         return redirect('/cartlist');

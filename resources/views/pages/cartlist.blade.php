@@ -35,7 +35,7 @@
                 </p>
             </div>
             <div class="col-md-3 col-sm-12">
-                <a href="/removecart/{{$item->cart_id}}" class="btn btn-outline-danger">Remove from cart</a>
+                <a href="/removeitem/{{$item->cart_id}}" class="btn btn-outline-danger">Remove from cart</a>
             </div>
             <div class="">
                 <hr>

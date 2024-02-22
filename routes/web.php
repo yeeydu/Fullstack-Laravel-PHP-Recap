@@ -37,7 +37,7 @@ Route::get('/products/{product}', [PagesController::class, 'product_info'])->nam
 Route::get('/admin', 'HomeController@index')->name('admin');
 Route::post('/add_to_cart', [CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/cartlist', [CartController::class, 'cartList'])->name('cartlist');
-Route::get('/removecart/{id}', [CartController::class, 'removeCart'])->name('removeCart');
+Route::get('/removeitem/{id}', [CartController::class, 'removeItem'])->name('removeItem');
 
 //**  BACKEND ROUTES  */
 Route::group(['middleware' => 'auth'], function () {
